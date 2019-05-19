@@ -14,11 +14,11 @@ public class GestorLloguersLite {
 
         sebas.afegeix(new Lloguer(dateFormat.parse("18/09/2013"),
                 20,
-                new Vehicle("Sirocco", "Volkswagen", Vehicle.COUPE)));
+                new Vehicle("Sirocco", "Volkswagen", Vehicle.GENERAL)));
 
         sebas.afegeix(new Lloguer(dateFormat.parse("12/11/2013"),
                 30,
-                new Vehicle("Ninja", "Kawasaki", Vehicle.MOTO)));
+                new Vehicle("Ninja", "Kawasaki", Vehicle.LUXE)));
 
         System.out.println(toString(sebas));
 
