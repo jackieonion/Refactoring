@@ -46,16 +46,7 @@ public class Client {
                 " (" + getNif() + ")\n";
         for (Lloguer lloguer: lloguers) {
             double quantitat = lloguer.quantitat();
-
-            // afegeix lloguers freqüents
-            bonificacions ++;
-
-            // afegeix bonificació per dos dies de lloguer de Luxe
-            if (lloguer.getVehicle().getCategoria() == Vehicle.LUXE &&
-                    lloguer.getDies()>1 ) {
-                bonificacions ++;
-            }
-
+            bonificacions += lloguer.bonificacions();
             // composa els resultats d'aquest lloguer
             resultat += "\t" +
                     lloguer.getVehicle().getMarca() +
@@ -70,6 +61,7 @@ public class Client {
                 "Punts guanyats: " + bonificacions + "\n";
         return resultat;
     }
+
 
     public int contaLloguers() {
         return lloguers.size();
