@@ -39,9 +39,19 @@ public class Client {
     }
 
     public String informe() {
-         String resultat = "Informe de lloguers del client " +
-                getNom() +
-                " (" + getNif() + ")\n";
+        return composaCapsalera() +
+                composaDetall() +
+                composaPeu();
+    }
+
+    private String composaPeu() {
+        return "Import a pagar: " + importTotal() + "€\n" +
+                "Punts guanyats: " + bonificacionsTotals() + "\n";
+    }
+
+    private String composaDetall() {
+        String resultat = "";
+
         for (Lloguer lloguer: lloguers) {
             // composa els resultats d'aquest lloguer
             resultat += "\t" +
@@ -50,11 +60,13 @@ public class Client {
                     lloguer.getVehicle().getModel() + ": " +
                     (lloguer.quantitat() * 30) + "€" + "\n";
         }
-
-        // afegeix informació final
-        resultat += "Import a pagar: " + importTotal() + "€\n" +
-                "Punts guanyats: " + bonificacionsTotals() + "\n";
         return resultat;
+    }
+
+    private String composaCapsalera() {
+        return "Informe de lloguers del client " +
+                getNom() +
+                " (" + getNif() + ")\n";
     }
 
     private int bonificacionsTotals() {
