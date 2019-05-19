@@ -7,9 +7,9 @@ public class Lloguer {
     private static final double PLUS_LLOGUER_LLARG_GENERAL = 2.5;
     private static final int DIES_INICIALS_BASIC = 3;
     private static final int DIES_INICIALS_GENERAL = 2;
-    private final int PREU_VEHICLE_BASIC = 3;
-    private final int PREU_VEHICLE_GENERAL = 4;
-    private final int PREU_VEHICLE_LUXE = 6;
+    private final int COST_VEHICLE_BASIC = 3;
+    private final int COST_VEHICLE_GENERAL = 4;
+    private final int COST_VEHICLE_LUXE = 6;
 
     private Date data;
     private int dies;
@@ -33,28 +33,28 @@ public class Lloguer {
 
     public void setVehicle(Vehicle vehicle) { this.vehicle = vehicle; }
 
-    public double quantitat() {
-        double quantitat = 0;
+    public double unitatsDeCost() {
+        double UnitatsDeCost = 0;
 
         switch (this.getVehicle().getCategoria()) {
             case Vehicle.BASIC:
-                quantitat += PREU_VEHICLE_BASIC;
+                UnitatsDeCost += COST_VEHICLE_BASIC;
                 if (this.getDies() > DIES_INICIALS_BASIC) {
-                    quantitat += (this.getDies() - DIES_INICIALS_BASIC) * PLUS_LLOGUER_LLARG_BASIC;
+                    UnitatsDeCost += (this.getDies() - DIES_INICIALS_BASIC) * PLUS_LLOGUER_LLARG_BASIC;
                 }
                 break;
             case Vehicle.GENERAL:
-                quantitat += PREU_VEHICLE_GENERAL;
+                UnitatsDeCost += COST_VEHICLE_GENERAL;
                 if (this.getDies() > DIES_INICIALS_GENERAL) {
-                    quantitat += (this.getDies() - DIES_INICIALS_GENERAL) * PLUS_LLOGUER_LLARG_GENERAL;
+                    UnitatsDeCost += (this.getDies() - DIES_INICIALS_GENERAL) * PLUS_LLOGUER_LLARG_GENERAL;
                 }
                 break;
             case Vehicle.LUXE:
-                quantitat += this.getDies() * PREU_VEHICLE_LUXE;
+                UnitatsDeCost += this.getDies() * COST_VEHICLE_LUXE;
                 break;
         }
 
-        return quantitat;
+        return UnitatsDeCost;
     }
 
     public int bonificacions() {
