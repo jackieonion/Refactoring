@@ -12,7 +12,7 @@ public class GestorLloguersLite {
 
         sebas.afegeix(new Lloguer(dateFormat.parse("02/08/2013"),
                  10,
-                      new Vehicle("Tata", "Vista", Vehicle.BASIC)));
+                      new Vehicle("Vista", "Tata", Vehicle.BASIC)));
 
         sebas.afegeix(new Lloguer(dateFormat.parse("18/09/2013"),
                 20,

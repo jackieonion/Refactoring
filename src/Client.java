@@ -96,4 +96,32 @@ public class Client {
     public int contaLloguers() {
         return lloguers.size();
     }
+
+    public String informeHTML() {
+        return composaCapsaleraHTML() +
+                composaDetallHTML() +
+                composaPeuHTML();
+    }
+
+    private String composaPeuHTML() {
+        return "</table>\n" +
+                "<p>Import a pagar: <em>" + importTotal() + "€</em></p>\n" +
+                "<p>Punts guanyats: <em>" + bonificacionsTotals() + "</em></p>";
+    }
+
+    private String composaDetallHTML() {
+        String resultat = "";
+        for (Lloguer lloguer : lloguers) {  // <tr><td>Wolswagen</td><td>Passat</td><td>270.0€</td></tr>
+            resultat += "<tr><td>" + lloguer.getVehicle().getMarca() + "</td><td>" +
+                    lloguer.getVehicle().getModel() + "</td><td>" +
+                    lloguer.unitatsDeCost() * EUROS_PER_UNITAT_DE_COST + "€</td></tr>\n";
+        }
+        return resultat;
+    }
+
+    private String composaCapsaleraHTML() {
+        return "<h1>Informe de lloguers</h1>\n" +
+                "<p>Informe de lloguers del client <em>" + getNom() + "</em> (<strong>" + getNif() + "</strong>)</p>\n" +
+                "<table>\n<tr><td><strong>Marca</strong></td><td><strong>Model</strong></td><td><strong>Import</strong></td></tr>     ";
+    }
 }
