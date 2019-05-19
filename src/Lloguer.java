@@ -3,6 +3,14 @@ package src;
 import java.util.Date;
 
 public class Lloguer {
+    private static final double PLUS_LLOGUER_LLARG_BASIC = 1.5;
+    private static final double PLUS_LLOGUER_LLARG_GENERAL = 2.5;
+    private static final int DIES_INICIALS_BASIC = 3;
+    private static final int DIES_INICIALS_GENERAL = 2;
+    private final int PREU_VEHICLE_BASIC = 3;
+    private final int PREU_VEHICLE_GENERAL = 4;
+    private final int PREU_VEHICLE_LUXE = 6;
+
     private Date data;
     private int dies;
     private Vehicle vehicle;
@@ -30,19 +38,19 @@ public class Lloguer {
 
         switch (this.getVehicle().getCategoria()) {
             case Vehicle.BASIC:
-                quantitat += 3;
-                if (this.getDies() > 3) {
-                    quantitat += (this.getDies() - 3) * 1.5;
+                quantitat += PREU_VEHICLE_BASIC;
+                if (this.getDies() > DIES_INICIALS_BASIC) {
+                    quantitat += (this.getDies() - DIES_INICIALS_BASIC) * PLUS_LLOGUER_LLARG_BASIC;
                 }
                 break;
             case Vehicle.GENERAL:
-                quantitat += 4;
-                if (this.getDies() > 2) {
-                    quantitat += (this.getDies() - 2) * 2.5;
+                quantitat += PREU_VEHICLE_GENERAL;
+                if (this.getDies() > DIES_INICIALS_GENERAL) {
+                    quantitat += (this.getDies() - DIES_INICIALS_GENERAL) * PLUS_LLOGUER_LLARG_GENERAL;
                 }
                 break;
             case Vehicle.LUXE:
-                quantitat += this.getDies() * 6;
+                quantitat += this.getDies() * PREU_VEHICLE_LUXE;
                 break;
         }
 
