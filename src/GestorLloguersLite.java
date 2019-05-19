@@ -7,7 +7,7 @@ public class GestorLloguersLite {
 
     static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-    public static void main(String[] args) throws ParseException {
+    public static Client creaClient() throws ParseException {
         Client sebas = new Client("X4381040T", "Sebastián Fornelli", "634679443");
 
         sebas.afegeix(new Lloguer(dateFormat.parse("02/08/2013"),
@@ -22,8 +22,7 @@ public class GestorLloguersLite {
                 30,
                 new Vehicle("Ninja", "Kawasaki", Vehicle.LUXE)));
 
-        System.out.println(toString(sebas));
-
+        return sebas;
     }
 
     public static String toString(Client client) {
