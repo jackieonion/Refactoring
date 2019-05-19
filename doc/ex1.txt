@@ -1,0 +1,6 @@
+Exercici 1. El meu exemple
+
+L’últim projecte que hem realitzat de programació és un joc d’escacs. Aquest consta de varies classes.
+Al acabar de programar els escacs, vaig fer refactoring a la classe de la dama, ja que el algoritme de moviment era un “copiapega” dels moviments de la torre sumats als moviments de l’alfil. En aquest cas considero que és refacció.
+En el mateix projecte, també al acabar, vaig arreglar tot el tema de deixar espais, comentar correctament, és a dir, el codi visualment. No considero això refacció.
+
