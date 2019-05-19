@@ -1,3 +1,5 @@
+package src;
+
 public class Vehicle {
     public static final int BASIC = 1;
     public static final int GENERAL = 2;
